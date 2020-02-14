@@ -6,20 +6,19 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //подключение созданных модулей
-const userController = require('./controllers/userController.js');
+const userRouter = require('./routes/userRouter.js');
+const homeRouter = require('./routes/homeRouter.js');
 
 //код работы web-сервера
 var app = express();
 app.set('view engine', 'ejs');
-
-var userRouter = express.Router();
-userRouter.get('/get-users', userController.showUsers);
-userRouter.get('/create-user', userController.addUser)
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/users', userRouter);
+app.use('/', homeRouter);
 
-app.use('/', (req, res) => {
-  res.send('Hello, unknown user');
-});
+app.use(function(req, res) {
+  res.status(404).send('Ошибка, страница не обнаружена');
+})
 
 app.listen(3030);
