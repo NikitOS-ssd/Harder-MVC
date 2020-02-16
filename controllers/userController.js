@@ -4,6 +4,9 @@ exports.addUser = function(req, res) {
   res.render('create.ejs');
 };
 exports.getUsers = function(req, res) {
+  var users = User.getAll();
+  console.log(users);
+  
   res.render('users.ejs', {
     users: User.getAll()
   });
