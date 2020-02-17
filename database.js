@@ -1,5 +1,16 @@
 const mysql = require("mysql2");
 
+//Подключение с помощью Pool(пулл подключения) с заранее установленым количеством возможных подключений
+// const pool = mysql.createPool({
+//   connectionLimit: 3,
+//   host: "localhost",
+//   port: 8889,
+//   database: "userBases",
+//   user: "root",
+//   password: "root"
+// });
+
+//Подключение к серверу и самой базе данных на локалке
 const connection = mysql.createConnection({
   host: "localhost",
   port: 8889,
@@ -8,8 +19,9 @@ const connection = mysql.createConnection({
   password: "root"
 });
 
-const sql = `INSERT INTO users(name, age) VALUES ?`;
+const sql = `INSERT INTO users(name, age) VALUES ?`; //sql команда
 
+//данные для добавления
 const users = [
   ["Nikita", 20],
   ["Alice", 25],
@@ -20,6 +32,7 @@ const user = [
   ["Nikita", 19]
 ];
 
+//Команды для добавления данных в БД
 function plusDataInDB(sql, data) {
   connection.query(sql, [data], function(err, result) {
     if(err) {
@@ -32,7 +45,7 @@ function plusDataInDB(sql, data) {
 
 plusDataInDB(sql, user);
 
-//Удаление данных с фильтрами
+//Команды на удаление данных с фильтрами
 // connection.query("DELETE FROM users");
 // connection.query("DELETE FROM users WHERE id<8");
 global.idZ = 0;
@@ -64,15 +77,7 @@ function deleteData() {
 }
 setTimeout(deleteData, 1000);
 
-//СОЗДАНИЕ ПОДКЛЮЧЕНИЯ С ПОМОЩЬЮ POOL (ПУЛЛ ПОДКЛЮЧЕНИЯ)
-// const pool = mysql.createPool({
-//   connectionLimit: 3,
-//   host: "localhost",
-//   port: 8889,
-//   database: "userBases",
-//   user: "root",
-//   password: "root"
-// });
+
 //
 // const sql = 'INSERT INTO users(name, age) VALUES ?';
 // const user = [
