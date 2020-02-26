@@ -9,9 +9,7 @@ exports.getUsers = function(req, res) {
   var users = User.getAll();
   console.log(users);
 
-  res.render('users.ejs', {
-    users: User.getAll()
-  });
+  res.render('users.ejs');
 };
 
 exports.postUser = function(req, res) {
@@ -19,8 +17,7 @@ exports.postUser = function(req, res) {
   var age = req.body.age;
 
   const user = new User({name: name, age: age});
-  user.save();
-  console.log(User.getAll());
+  user.save(name, age);
 
   var data = [user.name, user.age];
 
