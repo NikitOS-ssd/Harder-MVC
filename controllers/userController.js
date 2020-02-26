@@ -1,16 +1,19 @@
 const User = require("../models/user.js");
+const createNewUser = require("../database.js");
 
 exports.addUser = function(req, res) {
   res.render('create.ejs');
 };
+
 exports.getUsers = function(req, res) {
   var users = User.getAll();
   console.log(users);
-  
+
   res.render('users.ejs', {
     users: User.getAll()
   });
 };
+
 exports.postUser = function(req, res) {
   var name = req.body.name;
   var age = req.body.age;
@@ -18,6 +21,11 @@ exports.postUser = function(req, res) {
   const user = new User({name: name, age: age});
   user.save();
   console.log(User.getAll());
+
+  var data = [user.name, user.age];
+
+  createNewUser.createNewUser('INSERT INTO users(name, age) VALUES ?', data);
+
 
   res.redirect('/users');
 };
