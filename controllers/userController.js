@@ -6,8 +6,7 @@ exports.addUser = function(req, res) {
 };
 
 exports.getUsers = function(req, res) {
-  var users = User.getAll();
-  console.log(users);
+  User.getAll();
 
   res.render('users.ejs');
 };
@@ -18,11 +17,6 @@ exports.postUser = function(req, res) {
 
   const user = new User({name: name, age: age});
   user.save(name, age);
-
-  var data = [user.name, user.age];
-
-  createNewUser.createNewUser('INSERT INTO users(name, age) VALUES ?', data);
-
 
   res.redirect('/users');
 };

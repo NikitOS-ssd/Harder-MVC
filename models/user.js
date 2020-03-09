@@ -1,6 +1,6 @@
-const users = [];
 const mysql = require("mysql2");
-//
+const users = [];
+
 const connection = mysql.createConnection({
   host: "localhost",
   port: 8889,
@@ -20,7 +20,7 @@ module.exports = class User {
     var data = [
       [name, age]
     ];
-    console.log('DATA*', data);
+
     connection.query('INSERT INTO users(name, age) VALUES ?', [data], function(err, result) {
       if(err) {
         console.log('Ошибка', err);
