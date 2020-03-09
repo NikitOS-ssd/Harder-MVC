@@ -18,8 +18,5 @@ exports.postUser = function(req, res) {
   const user = new User({name: name, age: age});
   user.save(name, age);
 
-  var data = [user.name, user.age];
-
-
   res.redirect('/users');
 };
