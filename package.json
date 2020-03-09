@@ -1,0 +1,25 @@
+{
+  "name": "harder-mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mvcserver.js",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitOS-ssd/Harder-MVC.git"
+  },
+  "keywords": [
+    "1234"
+  ],
+  "author": "Nikita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitOS-ssd/Harder-MVC/issues"
+  },
+  "homepage": "https://github.com/NikitOS-ssd/Harder-MVC#readme"
+}

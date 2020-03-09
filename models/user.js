@@ -1,10 +1,11 @@
+const fs = require("fs");
 const users = [];
 const mysql = require("mysql2");
 //
 const connection = mysql.createConnection({
   host: "localhost",
   port: 8889,
-  database: "userBases",
+  database: "todolister",
   user: "root",
   password: "root"
 });
@@ -36,8 +37,8 @@ module.exports = class User {
       if(err) {
         console.log('Ошибка', err);
       } else {
-        console.log('Данные получены', result);
-        return result;
+        console.log('PR', users);
+        console.log(result);
       }
     });
   }
