@@ -20,6 +20,10 @@ app.use('/admin', adminRouter);
 app.use('/users', userRouter);
 app.use('/', homeRouter);
 
+app.get('/index', function(req, res) {
+  
+})
+
 //обработка ненайденного запроса
 app.use(function(req, res) {
   res.status(404).send('Ошибка, страница не обнаружена');
