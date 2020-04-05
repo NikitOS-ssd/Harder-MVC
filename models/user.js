@@ -14,15 +14,16 @@ module.exports = class User {
   constructor(obj) {
     this.name = obj.name;
     this.age = obj.age;
+    this.hobby = obj.hobby;
   }
 
-  save(name, age) {
+  save(name, age, hobby) {
     users.push(this);
     var data = [
-      [name, age]
+      [name, age, hobby]
     ];
 
-    connection.query('INSERT INTO users(name, age) VALUES ?', [data], function(err, result) {
+    connection.query('INSERT INTO users(name, age, hobby) VALUES ?', [data], function(err, result) {
       if(err) {
         console.log('Ошибка', err);
       } else {
