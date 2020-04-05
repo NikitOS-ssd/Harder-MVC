@@ -1,5 +1,5 @@
 const User = require("../models/user.js");
-const createNewUser = require("../database.js");
+// const createNewUser = require("../database.js");
 
 exports.addUser = function(req, res) {
   res.render('create.ejs');

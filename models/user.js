@@ -37,7 +37,7 @@ module.exports = class User {
       if(err) {
         console.log('Ошибка', err);
       } else {
-        console.log('PR', users);
+        console.log('PR: ', users);
         console.log(result);
       }
     });
