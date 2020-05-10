@@ -2,8 +2,9 @@
 const os = require('os');
 const fs = require('fs');
 const express = require('express');
+var app = express();
 const bodyParser = require('body-parser');
-// const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 
 //ПОДКЛЮЧЕНИЕ СОЗДАННЫХ МОДУЛЕЙ И НАЧАЛО РАБОТЫ WEB-СЕРВЕРА
 const userRouter = require('./routes/userRouter.js');
@@ -11,7 +12,6 @@ const homeRouter = require('./routes/homeRouter.js');
 const adminRouter = require('./routes/adminRouter.js');
 
 //код работы web-сервера
-var app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false })); //для обработки данных с клиента
 
