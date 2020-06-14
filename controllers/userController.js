@@ -1,7 +1,7 @@
 const User = require("../models/user.js");
 // const createNewUser = require("../database.js");
 
-exports.addUser = function(req, res) {
+exports.createUser = function(req, res) {
   res.render('create.ejs');
 };
 
@@ -11,7 +11,7 @@ exports.getUsers = function(req, res) {
   res.render('users.ejs');
 };
 
-exports.postUser = function(req, res) {
+exports.addUser = function(req, res) {
   var name = req.body.name;
   var age = req.body.age;
   var hobby = req.body.hobby;
